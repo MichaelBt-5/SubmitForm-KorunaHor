@@ -20,6 +20,8 @@ const czechWords =
         found: 'Książka została czech',
         notFound: 'Ksiązka nie została znaleziona w systemie',
         alreadyRegistered: 'Książka została już zarejestrowana',
+        textArea: 'Napisz komentarz...',
+        formName: 'Formularz zgłoszenia',
 
     }
 

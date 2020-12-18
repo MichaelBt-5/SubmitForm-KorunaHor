@@ -44,7 +44,9 @@ class Form extends React.Component {
             clientDecision: false,
             submitingData: 1,
             invalidDoClientHaveTheBook: false,
-            invalidAcceptedTermsOfService: false
+            invalidAcceptedTermsOfService: false,
+            language: window.language,
+            additionalInformation: '',
             
         }
         
@@ -151,7 +153,8 @@ class Form extends React.Component {
             this.state.emailAddress.indexOf(".") !== -1 && this.state.home_City &&
             this.state.home_PostalCode && goodAddress && 
             this.state.home_Street && this.state.ship_City && this.state.ship_Street &&
-            this.state.ship_PostalCode && goodDate && this.state.dateOfBirth) ||
+            this.state.ship_PostalCode && goodDate && this.state.dateOfBirth &&
+             this.state.acceptedTermsOfService && this.state.doClientHaveTheBook) ||
             (this.state.submitingData === 2 && isOnlyLettersName && 
             this.state.firstName.length > 2 && isOnlyLettersSurname &&
             this.state.lastName.length > 2 && 
@@ -159,7 +162,8 @@ class Form extends React.Component {
             this.state.emailAddress.indexOf(".") !== -1 && this.state.home_City &&
              this.state.home_PostalCode && goodAddress && 
             this.state.home_Street && this.state.ship_City && this.state.ship_Street &&
-            this.state.ship_PostalCode && goodDate && this.state.dateOfBirth)) {
+            this.state.ship_PostalCode && goodDate && this.state.dateOfBirth &&
+            this.state.acceptedTermsOfService && this.state.doClientHaveTheBook)) {
             e.preventDefault()
             this.setState({
                 invalidSurname: false,
@@ -172,6 +176,8 @@ class Form extends React.Component {
                 invalidShipmentCity: false,
                 invalidShipmentPostCode: false,
                 invalidBirthDate: false,
+                invalidAcceptedTermsOfService: false,
+                invalidDoClientHaveTheBook: false,
                 
             })
             let result
@@ -182,7 +188,8 @@ class Form extends React.Component {
             key === 'lastName' || key === 'telephoneNumber' || key === 'dateOfBirth' ||
             key === 'emailAddress' || key === 'home_Street' || key === 'home_City' ||
             key === 'home_PostalCode' || key === 'ship_Street' || key === 'ship_City' ||
-            key === 'ship_PostalCode' || key === 'bookId' || key === 'clientWantInvoice')))
+            key === 'ship_PostalCode' || key === 'bookId' || key === 'clientWantInvoice' ||
+            key === 'additionalInformation')))
            
             
             let xmlhttp = new XMLHttpRequest();

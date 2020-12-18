@@ -22,6 +22,8 @@ const polishWords =
         found: 'Książka została zakupiona w',
         notFound: 'Ksiązka nie została znaleziona w systemie',
         alreadyRegistered: 'Książka została już zarejestrowana',
+        textArea: 'Napisz komentarz...',
+        formName: 'Formularz zgłoszeniowy',
 
     }
 
