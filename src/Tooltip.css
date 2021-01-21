@@ -36,14 +36,14 @@
     position: absolute;
     border-radius: 4px;
     top: 10%;
-    left: 132%;
+    left: 150%;
     transform: translateX(-50%);
     color: var(--tooltip-text-color);
     background: var(--tooltip-background-color);
     z-index: 110;
-    min-width: 125px;
+    min-width: 200px;
     max-width: 250px;
-    min-height: 125px;
+    min-height: 200px;
     max-height: 250px;
     
    

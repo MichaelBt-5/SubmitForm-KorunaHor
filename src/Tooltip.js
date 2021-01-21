@@ -8,7 +8,7 @@ const Tooltip = (props) => {
   const showTip = () => {
     timeout = setTimeout(() => {
       setActive(true);
-    }, props.delay || 1000);
+    }, props.delay || 100);
   };
 
   const hideTip = () => {
@@ -29,7 +29,7 @@ const Tooltip = (props) => {
       {active && (
         <span className={`Tooltip-image ${props.direction || "right"}`}>
          
-          <img className='Image' src={props.image} alt='dupa'/>
+          <img className='Image' src={props.image} alt='noimage'/>
          
         </span>
       )}

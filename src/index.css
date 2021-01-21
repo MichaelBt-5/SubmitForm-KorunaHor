@@ -5,12 +5,10 @@
      
 }
 
-#korunahor {
-  font-family: 'Lato', sans-serif;
-}
+
 .font {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.1rem;
+  
+  font-size: 1.2rem;
   font-weight: normal;
   margin-left: 7px;
   
@@ -78,7 +76,7 @@ input::-webkit-inner-spin-button {
       vertical-align: middle;
      line-break: auto;
      max-width: 600px;
-     font-family: 'Lato', sans-serif;
+    
   font-size: 1.1rem;
   font-weight: normal;
      
@@ -143,7 +141,7 @@ input::-webkit-inner-spin-button {
    border: 1px solid black;
    border-radius: 4px;
    margin-left: 5px;
-   font-family: 'Lato', sans-serif;
+   
    font-size: 17px;
    
  }

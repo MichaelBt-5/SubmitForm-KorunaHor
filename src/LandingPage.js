@@ -10,7 +10,7 @@ import './Tooltip.css'
 const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, handleBlur, handleCheck, handleClick, polishItem, czechItem}) => {
     return (
         <form className='form' onSubmit={handleSubmit}>
-        <h2 className='font' style={{'fontSize': '25px'}}>{window.language === undefined || window.language === 'pl' ? polishItem.formName : window.language === 'cz' ? czechItem.formName : null}</h2>
+        <h2 className='font' style={{'fontSize': '25px'}}>{window.language === undefined || window.language === 'pl-PL' ? polishItem.formName : window.language === 'cs-CZ' ? czechItem.formName : null}</h2>
             <div>
             <br/>
             <span className='checkbox'>
@@ -24,7 +24,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                 onClick={handleCheck}
             />
             <span className='pipi' style={data.invalidDoClientHaveTheBook ? {'color': '#ff6868'} : null}>
-            {window.language === 'pl' || window.language === undefined ? polishItem.notHaveTheBook : window.language === 'cz' ? czechItem.notHaveTheBook : null}</span>
+            {window.language === 'pl-PL' || window.language === undefined ? polishItem.notHaveTheBook : window.language === 'cs-CZ' ? czechItem.notHaveTheBook : null}</span>
             <br/><br/>
             <input
                 className='checky'
@@ -36,24 +36,25 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                 onClick={handleCheck}
             />
            <span className='pipi' style={data.invalidDoClientHaveTheBook ? {'color': '#ff6868'} : null}>
-           { window.language === 'pl' ||  window.language === undefined ? polishItem.haveTheBook :  window.language === 'cz' ? czechItem.haveTheBook: null}</span>
+           { window.language === 'pl-PL' ||  window.language === undefined ? polishItem.haveTheBook :  window.language === 'cs-CZ' ? czechItem.haveTheBook: null}</span>
            
            {data.doClientHaveTheBook === 'Yes'  ?
            
              <div className='Tooltip-Wrapper'>
               
-             <Tooltip image='https://www.gstatic.com/images/branding/product/2x/photos_96dp.png'>
+             <Tooltip image='https://korunahor.cz/react-components/korunaHorForm/pic/Korona%20gor_strzalka.jpg'>
            <input
                 style={data.bookStatusCode === 0 ? {'backgroundColor': "#d2f8d2", 'marginRight': 0} : 
                 data.bookStatusCode === 1 || data.bookStatusCode === 2 || data.bookStatusCode === -2 ? {'backgroundColor': '#ff6868', 'marginRight': 0} : null}
                 type='number'
-                placeholder={ window.language === 'pl' ||  window.language === undefined ? polishItem.bookId :  window.language === 'cz' ? czechItem.bookId: null}
+                placeholder={ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.bookId :  window.language === 'cs-CZ' ? czechItem.bookId: null}
                 value={data.bookId}
                 name='bookId'
                 onChange={handleChange}
                 onBlur={handleBlur}
                 maxLength='15'
                 required 
+                title=''
                 className='inputId'
             /> 
             </Tooltip>
@@ -65,7 +66,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
             <br/><br/>
             <input
                 type='text'
-                placeholder={ window.language === 'pl' ||  window.language === undefined ? polishItem.name :  window.language === 'cz' ? czechItem.name: null}
+                placeholder={ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.name :  window.language === 'cs-CZ' ? czechItem.name: null}
                 value={data.firstName}
                 name='firstName'
                 onChange={handleChange}
@@ -78,7 +79,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
             
             <input
                 type='text'
-                placeholder={ window.language === 'pl' ||  window.language === undefined ? polishItem.surname :  window.language === 'cz' ? czechItem.surname: null}
+                placeholder={ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.surname :  window.language === 'cs-CZ' ? czechItem.surname: null}
                 value={data.lastName}
                 name='lastName'
                 onChange={handleChange}
@@ -88,7 +89,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
             />
             <input
                 type='text'
-                placeholder={ window.language === 'pl' ||  window.language === undefined ? polishItem.dateOfBirth :  window.language === 'cz' ? czechItem.dateOfBirth: null}
+                placeholder={ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.dateOfBirth :  window.language === 'cs-CZ' ? czechItem.dateOfBirth: null}
                 value={data.dateOfBirth}
                 name='dateOfBirth'
                 onChange={handleChange}
@@ -97,7 +98,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
             />
             <input
                 type='text'
-                placeholder={ window.language === 'pl' ||  window.language === undefined ? polishItem.email :  window.language === 'cz' ?czechItem.email: null}
+                placeholder={ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.email :  window.language === 'cs-CZ' ?czechItem.email: null}
                 value={data.emailAddress}
                 name='emailAddress'
                 onChange={handleChange}
@@ -106,7 +107,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
             />
             <input
                 type='text'
-                placeholder={ window.language === 'pl' ||  window.language === undefined ? polishItem.number :  window.language === 'cz' ?czechItem.number: null}
+                placeholder={ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.number :  window.language === 'cs-CZ' ?czechItem.number: null}
                 value={data.telephoneNumber}
                 name='telephoneNumber'
                 onChange={handleChange}
@@ -116,11 +117,11 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
             </div>
             <div>
             <br/>
-            <h3 className='font'>{ window.language === 'pl' ||  window.language === undefined ? polishItem.home :  window.language === 'cz' ?czechItem.home: null}</h3>
+            <h3 className='font'>{ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.home :  window.language === 'cs-CZ' ?czechItem.home: null}</h3>
             
                 <input
                     type='text'
-                    placeholder={ window.language === 'pl' ||  window.language === undefined ? polishItem.streetAndNumber :  window.language === 'cz' ?czechItem.streetAndNumber: null}
+                    placeholder={ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.streetAndNumber :  window.language === 'cs-CZ' ?czechItem.streetAndNumber: null}
                     value={data.home_Street}
                     name='home_Street'
                     onChange={handleChange}
@@ -129,7 +130,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                      />
                     <input
                     type='text'
-                    placeholder={ window.language === 'pl' ||  window.language === undefined ? polishItem.city :  window.language === 'cz' ?czechItem.city: null}
+                    placeholder={ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.city :  window.language === 'cs-CZ' ?czechItem.city: null}
                     value={data.home_City}
                     name='home_City'
                     onChange={handleChange}
@@ -138,7 +139,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                      />
                     <input
                     type='text'
-                    placeholder={ window.language === 'pl' ||  window.language === undefined ? polishItem.postCode :  window.language === 'cz' ?czechItem.postCode: null}
+                    placeholder={ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.postCode :  window.language === 'cs-CZ' ?czechItem.postCode: null}
                     value={data.home_PostalCode}
                     name='home_PostalCode'
                     onChange={handleChange}
@@ -147,7 +148,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                      />
             </div>
             <br/>
-            <h3 className='font'>{window.language === 'pl' || window.language === undefined ? polishItem.post :  window.language === 'cz' ?czechItem.post: null}</h3>
+            <h3 className='font'>{window.language === 'pl-PL' || window.language === undefined ? polishItem.post :  window.language === 'cs-CZ' ?czechItem.post: null}</h3>
             <span>
             
                 <input
@@ -159,7 +160,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                     onChange={handleShipmentData}
                     
                 />
-                <span className='pipi'>{ window.language === 'pl' ||  window.language === undefined ? polishItem.samePostAsHome : window.language === 'cz' ? czechItem.samePostAsHome: null}</span>
+                <span className='pipi'>{ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.samePostAsHome : window.language === 'cs-CZ' ? czechItem.samePostAsHome: null}</span>
             </span>
             <br/>
             {!data.sameDataForShipment  ?
@@ -167,7 +168,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
            
                 <input
                     type='text'
-                    placeholder={ window.language === 'pl' ||  window.language === undefined ? polishItem.streetAndNumber : window.language === 'cz' ? czechItem.streetAndNumber: null}
+                    placeholder={ window.language === 'pl-PL' ||  window.language === undefined ? polishItem.streetAndNumber : window.language === 'cs-CZ' ? czechItem.streetAndNumber: null}
                     value={data.ship_Street}
                     name='ship_Street'
                     onChange={handleChange}
@@ -176,7 +177,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                     />
                     <input
                     type='text'
-                    placeholder={window.window.language === 'pl' || window.window.language === undefined ? polishItem.city :window.window.language === 'cz' ? czechItem.city: null}
+                    placeholder={window.language === 'pl-PL' || window.language === undefined ? polishItem.city :window.language === 'cs-CZ' ? czechItem.city: null}
                     value={data.ship_City}
                     name='ship_City'
                     onChange={handleChange}
@@ -185,7 +186,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                     />
                     <input
                     type='text'
-                    placeholder={window.window.language === 'pl' || window.window.language === undefined ? polishItem.postCode :window.window.language === 'cz' ? czechItem.postCode: null}
+                    placeholder={window.language === 'pl-PL' || window.language === undefined ? polishItem.postCode :window.language === 'cs-CZ' ? czechItem.postCode: null}
                     value={data.ship_PostalCode}
                     name='ship_PostalCode'
                     onChange={handleChange}
@@ -198,7 +199,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
             
                 <input
                     type='text'
-                    placeholder={window.language === 'pl' || window.language === undefined ? polishItem.streetAndNumber :window.language === 'cz' ? czechItem.streetAndNumber: null}
+                    placeholder={window.language === 'pl-PL' || window.language === undefined ? polishItem.streetAndNumber :window.language === 'cs-CZ' ? czechItem.streetAndNumber: null}
                     value={data.home_Street}
                     name='ship_Street'
                     onChange={handleChange}
@@ -207,7 +208,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                      />
                     <input
                     type='text'
-                    placeholder={window.language === 'pl' || window.language === undefined ? polishItem.city :window.language === 'cz' ? czechItem.city: null}
+                    placeholder={window.language === 'pl-PL' || window.language === undefined ? polishItem.city :window.language === 'cs-CZ' ? czechItem.city: null}
                     value={data.home_City}
                     name='ship_City'
                     onChange={handleChange}
@@ -215,7 +216,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                      />
                     <input
                     type='text'
-                    placeholder={window.language === 'pl' || window.language === undefined ? polishItem.postCode :window.language === 'cz' ? czechItem.postCode: null}
+                    placeholder={window.language === 'pl-PL' || window.language === undefined ? polishItem.postCode :window.language === 'cs-CZ' ? czechItem.postCode: null}
                     value={data.home_PostalCode}
                     name='ship_PostalCode'
                     onChange={handleChange}
@@ -230,7 +231,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                     value={data.additionalInformation}
                     onChange={handleChange}
                     className='textArea'
-                    placeholder={window.language === undefined || window.language === 'pl' ? polishItem.textArea : window.language === 'cz' ? czechItem.textArea : null}
+                    placeholder={window.language === undefined || window.language === 'pl-PL' ? polishItem.textArea : window.language === 'cs-CZ' ? czechItem.textArea : null}
                     >
 
                 </textarea>
@@ -245,7 +246,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                         checked={data.clientWantInvoice}
                         onChange={handleChange}
                     />
-                    <span className='pipi'>{window.language === 'pl' || window.language === undefined ? polishItem.invoice :window.language === 'cz' ? czechItem.invoice: null}</span>
+                    <span className='pipi'>{window.language === 'pl-PL' || window.language === undefined ? polishItem.invoice :window.language === 'cs-CZ' ? czechItem.invoice: null}</span>
                     
                 </span>
                 <br/><br/>
@@ -261,7 +262,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
                     <span 
                         className='pipi' 
                         style={data.invalidAcceptedTermsOfService ? {'color': '#ff6868'} : null}>
-                        {window.language === 'pl' || window.language === undefined ? polishItem.acceptedTerms :window.language === 'cz' ? czechItem.acceptedTerms : null}</span>
+                        {window.language === 'pl-PL' || window.language === undefined ? polishItem.acceptedTerms :window.language === 'cs-CZ' ? czechItem.acceptedTerms : null}</span>
                     </span>
                     </div>
            
@@ -271,7 +272,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
             {data.acceptedTermsOfService && data.doClientHaveTheBook === 'Yes' && data.bookStatusCode === 0 ? <input
                 title='Sign up' 
                 type="submit" 
-                value={window.language === 'pl' || window.language === undefined ? polishItem.submitButton :window.language === 'cz' ? czechItem.submitButton : null}
+                value={window.language === 'pl-PL' || window.language === undefined ? polishItem.submitButton :window.language === 'cs-CZ' ? czechItem.submitButton : null}
                 style={{'fontSize': '20px', 'fontFamily': 'Lato, sansSerif'}}
                 className='button'
             />:
@@ -279,7 +280,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
              <input
                 title='Sign up' 
                 type="submit" 
-                value={window.language === 'pl' || window.language === undefined ? polishItem.submitButton :window.language === 'cz' ? czechItem.submitButton : null}
+                value={window.language === 'pl-PL' || window.language === undefined ? polishItem.submitButton :window.language === 'cs-CZ' ? czechItem.submitButton : null}
                 style={{'fontSize': '20px', 'fontFamily': 'Lato, sansSerif'}}
                 className='button' 
                 /> : 
@@ -287,7 +288,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
             <input
                 title='Sign up' 
                 type="submit" 
-                value={window.language === 'pl' || window.language === undefined ? polishItem.submitButton :window.language === 'cz' ? czechItem.submitButton : null}
+                value={window.language === 'pl-PL' || window.language === undefined ? polishItem.submitButton :window.language === 'cs-CZ' ? czechItem.submitButton : null}
                 style={{'fontSize': '20px', 'fontFamily': 'Lato, sansSerif'}} 
                 className='button'
                 disabled
@@ -295,7 +296,7 @@ const LandingPage = ({data, handleSubmit, handleChange, handleShipmentData, hand
             <input
                 title='Sign up' 
                 type="submit" 
-                value={window.language === 'pl' || window.language === undefined ? polishItem.submitButton :window.language === 'cz' ? czechItem.submitButton  : null}
+                value={window.language === 'pl-PL' || window.language === undefined ? polishItem.submitButton :window.language === 'cs-CZ' ? czechItem.submitButton  : null}
                 style={{'fontSize': '20px', 'fontFamily': 'Lato, sansSerif'}} 
                 className='button'
                 

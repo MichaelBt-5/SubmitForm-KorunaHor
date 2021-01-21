@@ -45,7 +45,7 @@ class Form extends React.Component {
             submitingData: 1,
             invalidDoClientHaveTheBook: false,
             invalidAcceptedTermsOfService: false,
-            language: window.language,
+            language: '',
             additionalInformation: '',
             
         }
@@ -131,6 +131,9 @@ class Form extends React.Component {
                     
                 })
             }
+            this.setState({
+                language: window.language
+            })
            
         }
 
@@ -189,22 +192,27 @@ class Form extends React.Component {
             key === 'emailAddress' || key === 'home_Street' || key === 'home_City' ||
             key === 'home_PostalCode' || key === 'ship_Street' || key === 'ship_City' ||
             key === 'ship_PostalCode' || key === 'bookId' || key === 'clientWantInvoice' ||
-            key === 'additionalInformation')))
+            key === 'additionalInformation' || key === 'language')))
            
             
             let xmlhttp = new XMLHttpRequest();
             const Url = 'https://korunahor.cz/wp-json/korunahorAPI/v1/CreateNewUser'
             xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            window.location ='https://korunahor.cz/index.php/dziekujemy-za-zgloszenie/'
+            if(window.language === 'cs-CZ')  {window.location="https://korunahor.cz/react-components/korunaHorForm/communication_templates/cs-CZ/ConfirmationPage.html"} 
+            else if ( window.language === 'pl-PL') {window.location='https://korunahor.cz/react-components/korunaHorForm/communication_templates/pl-PL/ConfirmationPage.html'}
+            else { return null}
             
-        } 
+        } else if ( xmlhttp.status === 404 && window.language === 'pl-PL') {
+            window.location = 'https://korunahor.cz/react-components/korunaHorForm/communication_templates/pl-PL/ErrorPage.html'
+        } else if (xmlhttp.status === 404 && window.language === 'cs-CZ') {
+            window.location = 'https://korunahor.cz/react-components/korunaHorForm/communication_templates/cs-CZ/ErrorPage.html'
+        }
       
     }
     xmlhttp.open("POST", Url, true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(result)
-    console.log(result)
     return result
 
             } else if (this.state.submitingData === 1 || this.state.submitingData === 2) {
@@ -240,7 +248,7 @@ class Form extends React.Component {
                 }
                 if(!goodDate || !this.state.dateOfBirth) {
                     this.setState({
-                        dateOfBirth: 'DD.MM.YYYY',
+                        dateOfBirth: 'DD.MM.RRRR',
                         invalidBirthDate: true,
                         submitingData: 2,
                     })
@@ -268,7 +276,7 @@ class Form extends React.Component {
                 if(!goodAddress || !this.state.home_Street) {
                     
                       this.setState({
-                          home_Street: 'Ulica i numer domu',
+                          home_Street: window.language === 'pl-PL' ? 'Ulica i numer domu' : window.language === 'cs-CZ' ? 'Ulice a číslo domu': null,
                           invalidStreet: true,
                           submitingData: 2,
                       })
@@ -281,7 +289,7 @@ class Form extends React.Component {
                 }
                 if(!goodAddress || !this.state.ship_Street ) {
                     this.setState({
-                        ship_Street: 'Ulica i numer domu',
+                        ship_Street: window.language === 'pl-PL' ? 'Ulica i numer domu' : window.language === 'cs-CZ' ? 'Ulice a číslo domu': null,
                         invalidShipmentStreet: true,
                         submitingData: 2,
                     })   
@@ -323,8 +331,9 @@ class Form extends React.Component {
     }
 
      this.handleBlur = () => {
-         const Url = 'https://korunahor.cz/wp-json/korunahorAPI/v1/CheckIfBookIsReserved/1'
-       const result = fetch(Url)
+         let Url = 'https://korunahor.cz/wp-json/korunahorAPI/v1/CheckIfBookIsReserved/' + this.state.bookId
+       if(this.state.bookId) {
+           const result = fetch(Url)
          .then(data => data.json())
          .then(res => JSON.parse(res))
          .then(res => res.BookId === this.state.bookId ? 
@@ -339,7 +348,8 @@ class Form extends React.Component {
              bookStatusCode: -2,
             }))
     
-         return result
+         return result 
+        } else {return null}
      }   
 }
     render() {
